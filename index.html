@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="A product landing page to fulfill Free Code Camp's curriculum.">
+  <meta name="author" content="Ian Robinson">
+  <title>Learn Podcast Production by Ian Robinson</title>
+  
+  <!-- FREE CODE CAMP TESTING SCRIPT -->
+  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+    <!-- JQuery for Scrolling -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- FROM SKELETON - Thank you Dave - https://github.com/dhg/Skeleton -->
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="lib/favicon.png">
+
+  <!-- JavaScript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="js/productLandingPage.js"></script>
+  <!-- END SKELETON -->
+
+  <link rel="stylesheet" href="css/productLandingPage.css">
+  
+  <style>
+    @media (min-width: 850px) {
+      .navbar, .navbar-spacer {
+        display: block;
+        width: 100%;
+        height: 7.5rem;
+        background: rgb(214, 235, 25);
+        z-index: 98;
+        border-top: 1px solid rgb(250, 250, 247);
+        border-bottom: 1px solid rgb(236, 241, 243);
+      }
+
+      .navbar-spacer {
+        display: none;
+      }
+
+      .navbar > .container {
+        width: 100%;
+      }
+
+      .navbar-list {
+        list-style: none;
+        margin-bottom: 0;
+      }
+
+      .navbar-item {
+        position: relative;
+        float: left;
+        margin-bottom: 0;
+      }
+
+      .navbar-link {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .2rem;
+        margin-right: 35px;
+        text-decoration: none;
+        line-height: 6.5rem;
+        color: #222;
+      }
+
+      .navbar-link.active {
+        color: #26acac;
+      }
+
+      .has-docked-nav .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      .has-docked-nav .navbar-spacer {
+        display: block;
+      }
+
+      /* Re-overiding the width 100% declaration to match size of % based container */
+      .has-docked-nav .navbar > .container {
+        width: 80%;
+      }
+
+      /* Popover */
+      .popover.open {
+        display: block;
+      }
+
+      .popover {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgb(197, 143, 143);
+        border: 1px solid rgb(206, 59, 59);
+        border-radius: 4px;
+        top: 92%;
+        left: -50%;
+        -webkit-filter: drop-shadow(0 0 6px rgba(17, 2, 2, 0.1));
+           -moz-filter: drop-shadow(0 0 6px rgba(20, 19, 19, 0.1));
+                filter: drop-shadow(0 0 6px rgba(20, 18, 18, 0.1));
+      }
+
+      .popover-item:first-child .popover-link:after,
+      .popover-item:first-child .popover-link:before {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .popover-item:first-child .popover-link:after {
+        border-color: rgba(145, 19, 19, 0);
+        border-bottom-color: rgb(126, 27, 27);
+        border-width: 10px;
+        margin-left: -10px;
+      }
+
+      .popover-item:first-child .popover-link:before {
+        border-color: rgba(238, 238, 238, 0);
+        border-bottom-color: rgb(165, 35, 35);
+        border-width: 11px;
+        margin-left: -11px;
+      }
+
+      .popover-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .popover-item {
+        padding: 0;
+        margin: 0;
+      }
+
+      .popover-link {
+        position: relative;
+        color: #222;
+        display: block;
+        padding: 8px 20px;
+        border-bottom: 1px solid rgb(235, 196, 196);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.0rem;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: .1rem;
+      }
+
+      .popover-item:first-child .popover-link {
+        border-radius: 4px 4px 0 0;
+      }
+
+      .popover-item:last-child .popover-link {
+        border-radius: 0 0 4px 4px;
+        border-bottom-width: 0;
+      }
+
+      .popover-link:hover {
+        color: rgb(235, 211, 211);
+        background: #23b8e6;
+      }
+
+      .popover-link:hover,
+      .popover-item:first-child .popover-link:hover:after {
+        border-bottom-color: #12aad8;
+      }
+    }
+
+    #ian-image-container {
+      display: flex;
+      max-width: 300px;
+      margin: auto;
+      padding-bottom: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <header id="header">
+
+        <!-- START NAV -->
+        <nav id="nav-bar" class="navbar">
+          <div class="container">
+          <ul class="navbar-list">
+            <li class="nav-link navbar-item" href="#watch"><a href="#watch" class="navbar-link">Features</a></li>
+            <li class="nav-link navbar-item" href="#about"><a href="#about" class="navbar-link">
+              How It Works</a></li>
+            <li class="nav-link navbar-item" href="#testimonials"><a href="#testimonials" class="navbar-link">Pricings</a></li>
+            <li class="nav-link navbar-item" href="#sign-up"><a href="#sign-up" class="navbar-link">About</a></li>
+            <img id="header-img" src="https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_small.svg">
+          </ul>
+        </nav>
+        <!-- END NAV -->
+      </header>
+      
+      <section class="header">
+        <center><img id="pow" src="https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_small.svg"></center>
+        <h1 id="title" class="title">Free Code Camp</h1>
+        <p id="description">freeCodeCamp is a non-profit organization that consists of an interactive learning web platform, an online community forum, chat rooms, online publications and local organizations that intend to make learning web development accessible to anyone</p>
+        <a id="immediate-start-button" class="button button-primary" target="_blank" href="https://freedompodcasting.com/udemy">Get Started Today</a>
+      </section>
+    <div id="watch"></div>
+    <h2>Watch</h2>
+    <iframe width="100%" height="500" src="https://www.youtube.com/embed/rfscVS0vtbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <video id="video" width="100%" max-width="500" height="auto" controls src="video/video.mp4" type="video/mp4">
+      <source src="movie.ogg" type="video/ogg">
+      Your browser does not support our video tag.
+    </video>
+    <h2 id="about">About</h2>
+    <div id="ian-image-container">
+      <img src="https://i1.sndcdn.com/artworks-000217262419-2vqybk-t500x500.jpg">
+    </div>
+    <p style="background-color:Tomato;">freeCodeCamp (also referred to as “Free Code Camp”) is a non-profit organization[3] that consists of an interactive learning web platform, an online community forum, chat rooms, online publications and local organizations that intend to make learning web development accessible to anyone. Beginning with tutorials that introduce students to HTML, CSS and JavaScript, students progress to project assignments that they complete either alone or in pairs. Upon completion of all project tasks, students are partnered with other nonprofits to build web applications, giving the students practical development experience.</p>
+      <h2 id="history">History</h2>
+    <div class="row">
+      <p style="background-color:Violet;">freeCodeCamp was launched in October 2014 and incorporated as Free Code Camp, Inc. The founder, Quincy Larson, is a software developer who took up programming after graduate school and created freeCodeCamp as a way to streamline a student's progress from beginner to being job-ready.
+
+        In a 2015 podcast interview, he summarized his motivation for creating freeCodeCamp as follows:
+        
+        freeCodeCamp is my effort to correct the extremely inefficient and circuitous way I learned to code. I'm committing my career and the rest of my life towards making this process as efficient and painless as possible. [...] All those things that made learning to code a nightmare to me are things that we are trying to fix with freeCodeCamp.[5]
+        
+        The original curriculum focused on MongoDB, Express.js, AngularJS, and Node.js and was estimated to take 800 hours to complete.[6] Many of the lessons were links to free material on other platforms, such as Codecademy, Stanford, or Code School. The course was broken up into “Waypoints” (quick, interactive tutorials), “Bonfires” (algorithm challenges), “Ziplines” (front-end projects), and “Basejumps” (full-stack projects). Completing the front-end and full-stack projects awarded the student with respective certificates.
+        
+        The curriculum was updated in January 2016 to rely less on outside material, remove the unconventional section names, and switch focus from AngularJS to React.js as the front-end library of choice. There were a number of additions to the coursework, including D3.js and Sass, which brought the total time estimate to 2,080 hours and two more certificates, data visualization, and back-end.</p>
+    </div>
+
+  <div class="row">
+    <h2 id="Founder">Fouder</h2>
+    <p style="background-color:DodgerBlue;">Quincy Larson was a school director for six years before he started to learn to code so that he could create tools for making schools more efficient.[7] His own journey into learning to code was long and winding[8] and he recognized the need for a single-track curriculum for newbie developers. Upon analyzing data on coding boot camps in the US and realizing how inaccessible coding education was to the masses,[9] he set out to create a fully-online inclusive free platform for peer-driven learning of coding - the result of which is freeCodeCamp.
+
+      He lives in Texas with his family and spends his time working on freeCodeCamp, writing and interviewing authors for the freeCodeCamp publication, co-ordinating open source projects such as Chapter (a free MeetUp alternative),[10] advocating for a free and open internet[11] and playing with his two young kids.</p>
+  </div>
+
+  <div class="row">
+    <h2 id="curriculum">curriculum</h2>
+    <p style="background-color:MediumSeaGreen;">The self-paced curriculum[12] involves 1,400 hours of interactive coding challenges and web development projects, plus 800 hours of contributing to open-source[13] projects for nonprofits and is constantly expanded by more challenges and projects.[4] This translates into about one year of full-time coding. The curriculum is divided into Responsive Web Design, JavaScript Algorithms and Data Structures, Front End Libraries, Data Visualization, APIs and Microservices, and Information Security and Quality Assurance. Participants receive a certificate after completing each section.[14]
+
+      The curriculum emphasizes pair programming, intended to foster a culture of collaboration and shared learning, which can overcome a student's doubts about the adequacy of their skills (popularly referred to as “impostor syndrome”).[15]
+      
+      The languages and technologies currently taught by freeCodeCamp include HTML5, PHP, CSS 3, JavaScript, jQuery, Bootstrap, Sass, React.js, Node.js, Python, Express.js, MongoDB, and Git.[16]</p>
+  </div>
+
+  <div class="row">
+    <h2 id="non-profit work">Non Profit Work</h2>
+    <p style="background-color:Orange;">As students of freeCodeCamp finish all certificates of the curriculum, they get the opportunity, and are encouraged, to work with nonprofit organizations.[17] Examples have been Indonesia-based nonprofit Kopernik[18] and People Saving Animals.[18]
+
+      In 2016, freeCodeCamp announced their "Open Source for Good" initiative, which extends and open sources their nonprofit work to all nonprofits and organizations to use.[19] Within ten months of launching, the initiative has created seven open-source tools.[20] Mail for Good is one of the projects, which helps organizations send bulk email messages at a low cost,[21] which serves as a cheaper alternative to services such as MailChimp.</p>
+  </div>
+  <div class="row">
+    <h2 id="Reception">Reception</h2>
+    <p style="background-color:MediumSeaGreen;">freeCodeCamp's platform is used by about 350,000 unique visitors per month,[22][23] with students from over 160 countries.[24]
+
+      freeCodeCamp has international, community-run groups where students can interact in person.[25] Some groups have been featured in local news, citing freeCodeCamp as an introduction to programming in order to fill the estimated vacancy in programming-related jobs in the next decade.[26][27]</p>
+  </div>
+    <center><h2 id="sign-up">Create Account</h2></center>
+    <center>
+      <form id="form" action="https://www.freecodecamp.org/email-submit" method="post">
+        <div class="row">
+          <div class="six columns">
+            <label id="name-label">Name</label>
+            <input id="name" type="text" placeholder="name" required></input>
+          </div>
+          <div class="six columns">
+            <label id="email-label">Email</label>
+            <input id="email" type="email" name="email" placeholder="email" required></input>
+          </div>
+        </div>
+        <input id="submit" type="submit" class="button-primary" value="Submit"></input>
+      </form>
+    </center>
+  </div>
+</body>
+</html>
