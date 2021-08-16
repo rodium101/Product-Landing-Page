@@ -1,0 +1,35 @@
+input {
+  width: 85%;
+}
+
+a {
+  text-decoration: none;
+}
+
+#immediate-start-button {
+  margin: 4em 4em 4em 4em;
+}
+
+.container {
+  max-width: 850px;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 10em;
+}
+
+.navbar {
+  display: none;
+}
+
+#header-img {
+  display: none;
+}
+
+#pow {
+  margin-top: 5.5em;
+  margin-bottom: 1em;
+  max-width: 500px;
+  width: 100%;
+}
